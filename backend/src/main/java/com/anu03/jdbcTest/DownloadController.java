@@ -11,16 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DownloadController {
 
-    private final DownloadController downloadController;
+    //this part will lead to errors because it creates a circular dependency
+    //the DownloadController is instancing itself, this is not allowed for a bean
+//    private final DownloadController downloadController;
+//
+//    public DownloadController() {
+//        this.downloadController = downloadController;
+//    }
+    public DownloadController() {
 
-    public DownloadController(DownloadController downloadController) {
-        this.downloadController = downloadController;
     }
 
 
     @GetMapping("/download/{id}")
     public ResponseEntity<byte[]> download(@PathVariable int id) {
-        byte[] data;
+        byte[] data = new byte[0];
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(data, headers, HttpStatus.OK);
     }
