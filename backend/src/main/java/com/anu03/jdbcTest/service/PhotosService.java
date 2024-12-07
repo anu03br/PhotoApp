@@ -4,8 +4,6 @@ import com.anu03.jdbcTest.model.Photo;
 import com.anu03.jdbcTest.repository.PhotosRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 //@Component
 @Service
 public class PhotosService {

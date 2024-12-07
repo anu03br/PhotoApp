@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.util.Collection;
 
 
 //this annotation will tell spring to automatically create a new instance when running main
