@@ -16,13 +16,14 @@ import java.util.UUID;
 //this annotation will tell spring to automatically create a new instance when running main
 @RestController
 public class PhotosController {
+
+    private final PhotosService photosService;
+
+    public PhotosController(PhotosService photosService) {
+        this.photosService = photosService;
+    }
+
     //    if we goto 'http://localhost:8080/' this should be run
-
-    private Map<String, Photo> db = new HashMap<>() {{
-        put("1", new Photo("1", "hello.jpg"));
-    }};
-
-
     @GetMapping("/")
     public String hello() {
 //        here we can return HTML elements as a String
@@ -32,13 +33,13 @@ public class PhotosController {
     // this is the "select * from" method
     @GetMapping("/photos")
     public Collection<Photo> get() {
-        return db.values();
+        return photosService.get();
     }
 
     // this is the "select 1 from" method
     @GetMapping("/photos/{id}")
     public Photo get(@PathVariable String id) {
-        Photo photo = db.get(id);
+        Photo photo = photosService.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return photo;
     }
@@ -48,7 +49,7 @@ public class PhotosController {
     // await fetch("http://localhost:8080/photoz/1", { method: "DELETE" });
     @DeleteMapping("/photos/{id}")
     public void delete(@PathVariable String id) {
-        Photo photo = db.remove(id);
+        Photo photo = photosService.remove(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
@@ -72,12 +73,7 @@ public class PhotosController {
     */
     @PostMapping("/photos")
     public Photo create(@RequestPart("data")MultipartFile file) throws IOException {
-        Photo photo = new Photo();
-        photo.setId(UUID.randomUUID().toString());
-        photo.setFileName(file.getOriginalFilename());
-        photo.setData(file.getBytes());
-        db.put(photo.getId(), photo);
-        return photo;
+       return photosService.save(file.getOriginalFilename(), file.getBytes());
     }
 
 }
