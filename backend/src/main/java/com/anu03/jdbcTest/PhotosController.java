@@ -27,12 +27,14 @@ public class PhotosController {
         return "<h1>Welcome to the project</h1><p>This is a Spring Boot app!</p>";
     }
 
-    @GetMapping ("/photos")
+    // this is the "select * from" method
+    @GetMapping("/photos")
     public Collection<Photo> get() {
         return db.values();
     }
 
-    @GetMapping ("/photos/{id}")
+    // this is the "select 1 from" method
+    @GetMapping("/photos/{id}")
     public Photo get(@PathVariable String id) {
         Photo photo = db.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -48,6 +50,24 @@ public class PhotosController {
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
+    // this is the "insert into" method
+    /*
+    test this with:
+    (async function createPhoto() {
+          let photo = {"fileName": "hello.jpg"};
+
+          await fetch("http://localhost:8080/photos", {
+                    method: "POST",
+                    headers: {
+                              "Accept": "application/json",
+                              "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(photo)
+                    })
+                    .then(result => result.text())
+                    .then(text => alert(text));
+            })();
+    */
     @PostMapping("/photos")
     public Photo create(@RequestBody @Valid Photo photo) {
         photo.setId(UUID.randomUUID().toString());
