@@ -39,6 +39,9 @@ public class PhotosController {
         return photo;
     }
 
+    // this is the "delete from " method
+    //test it with
+    // await fetch("http://localhost:8080/photoz/1", { method: "DELETE" });
     @DeleteMapping("/photos/{id}")
     public void delete(@PathVariable String id) {
         Photo photo = db.remove(id);
