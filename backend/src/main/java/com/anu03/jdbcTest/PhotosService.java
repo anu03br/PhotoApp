@@ -26,8 +26,9 @@ public class PhotosService {
         return db.remove(id);
     }
 
-    public Photo save(String fileName, byte[] data) {
+    public Photo save(String fileName, String contentType, byte[] data) {
         Photo photo = new Photo();
+        photo.setContentType(contentType);
         photo.setId(UUID.randomUUID().toString());
         photo.setFileName(fileName);
         photo.setData(data);
