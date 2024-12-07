@@ -2,10 +2,14 @@ package com.anu03.jdbcTest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("PHOTOS")
 public class Photo {
 
-    private String id;
+    @Id
+    private Integer id;
 
     @NotEmpty
     private String fileName;
@@ -16,11 +20,6 @@ public class Photo {
     private byte[] data;
 
     public Photo() {
-    }
-
-    public Photo(String id, String fileName) {
-        this.id = id;
-        this.fileName = fileName;
     }
 
     public byte[] getData() {
@@ -39,11 +38,11 @@ public class Photo {
         this.contentType = contentType;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
