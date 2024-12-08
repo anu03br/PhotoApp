@@ -1,0 +1,219 @@
+{
+  "main": {
+    "id": "7d80f3ff1912428b",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5b978330186160a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4000ba8681015f3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Welcome"
+            }
+          },
+          {
+            "id": "786be5c2eb418797",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Maven project/6. Setting up the H2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6. Setting up the H2"
+            }
+          },
+          {
+            "id": "685ffeaf0d220ceb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7. Adding a React frontend.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "7. Adding a React frontend"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8dc206706453f438",
+    "type": "split",
+    "children": [
+      {
+        "id": "9af06d278cc703da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d13a1225a98cfaa",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d6c7ad01892c0880",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e60718f3fc5af5ce",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b85f9134bd2e5fad",
+    "type": "split",
+    "children": [
+      {
+        "id": "96f2a70a2801a385",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f410feadbf14e726",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Maven project/Initializing your project.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Initializing your project"
+            }
+          },
+          {
+            "id": "7344ddfee535011b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Maven project/Initializing your project.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Initializing your project"
+            }
+          },
+          {
+            "id": "287694cdb7da622a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "4962f1a3855a8f66",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Maven project/Initializing your project.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Initializing your project"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "685ffeaf0d220ceb",
+  "lastOpenFiles": [
+    "Maven project/images/Pasted image 20241208163531.png",
+    "Maven project/6. Setting up the H2.md",
+    "7. Adding a React frontend.md",
+    "Maven project/5. Creating a service class.md",
+    "Maven project/4. Creating a controller.md",
+    "Maven project/Jetbrains Problems.md",
+    "Maven project/3. Creating a model class.md",
+    "Maven project/images/Pasted image 20241207193622.png",
+    "Maven project/images/Pasted image 20241207193557.png",
+    "Maven project/images/Pasted image 20241207193523.png",
+    "Maven project/images/Pasted image 20241207184449.png",
+    "Maven project/images/Pasted image 20241207184327.png",
+    "Maven project/2. String web.md",
+    "Maven project/1. Initializing your project.md",
+    "Maven project/images/Pasted image 20241207161007.png",
+    "Maven project/images/Pasted image 20241207153602.png",
+    "Maven project/images/Pasted image 20241207153351.png",
+    "Maven project/images/Pasted image 20241207153324.png",
+    "Maven project/images/Pasted image 20241207153032.png",
+    "Maven project/images",
+    "Maven project",
+    "Welcome.md"
+  ]
+}
