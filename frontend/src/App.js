@@ -1,14 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import ProfileCustomization from './components/ProfileCustomization';
 import './App.css';
-import FileUpload from "./components/FileUpload";
 
 function App() {
-  return (
-      <div className="App">
-        <h1>Photo Management App</h1>
-        <FileUpload/>
-      </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/profile-customization" element={<ProfileCustomization />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
