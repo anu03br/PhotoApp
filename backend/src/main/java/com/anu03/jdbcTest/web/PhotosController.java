@@ -1,6 +1,7 @@
-package com.anu03.jdbcTest;
+package com.anu03.jdbcTest.web;
 
-import jakarta.validation.Valid;
+import com.anu03.jdbcTest.service.PhotosService;
+import com.anu03.jdbcTest.model.Photo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,9 +9,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap; // TODO anschauen was HashMap ist
-import java.util.Map;
-import java.util.UUID;
 
 
 //this annotation will tell spring to automatically create a new instance when running main

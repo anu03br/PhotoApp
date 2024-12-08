@@ -1,5 +1,6 @@
-package com.anu03.jdbcTest;
+package com.anu03.jdbcTest.service;
 
+import com.anu03.jdbcTest.model.Photo;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

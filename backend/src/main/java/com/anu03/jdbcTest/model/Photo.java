@@ -1,4 +1,4 @@
-package com.anu03.jdbcTest;
+package com.anu03.jdbcTest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;

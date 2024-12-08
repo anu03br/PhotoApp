@@ -1,5 +1,7 @@
-package com.anu03.jdbcTest;
+package com.anu03.jdbcTest.web;
 
+import com.anu03.jdbcTest.service.PhotosService;
+import com.anu03.jdbcTest.model.Photo;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
