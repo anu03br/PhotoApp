@@ -1,29 +1,30 @@
 package com.anu03.jdbcTest.service;
 
 import com.anu03.jdbcTest.model.Photo;
+import com.anu03.jdbcTest.repository.PhotosRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class PhotosService {
 
-    private Map<Integer, Photo> db = new HashMap<>() {{
-        put(1, new Photo(1, "hello.jpg"));
-    }};
+    public final PhotosRepository photosRepository;
 
-    public Collection<Photo> get() {
-        return db.values();
+    public PhotosService(PhotosRepository photosRepository) {
+        this.photosRepository = photosRepository;
     }
 
-    public Photo get(int id) {
-        return db.get(id);
+    public Iterable<Photo> get() {
+
+        return photosRepository.findAll();
     }
 
-    public Photo remove(int id) {
-        return db.remove(id);
+    public Photo get(Integer id) {
+
+        return photosRepository.findById(id).orElse(null);
+    }
+
+    public void remove(Integer id) {
+        photosRepository.deleteById(id);
     }
 
     public Photo save(String fileName, String contentType, byte[] data) {
@@ -31,7 +32,7 @@ public class PhotosService {
         photo.setContentType(contentType);
         photo.setFileName(fileName);
         photo.setData(data);
-        db.put(photo.getId(), photo);
+       photosRepository.save(photo);
         return photo;
     }
 }

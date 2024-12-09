@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("PHOTOS")
 public class Photo {
-
+    @id
     private int id;
 
     @NotEmpty
