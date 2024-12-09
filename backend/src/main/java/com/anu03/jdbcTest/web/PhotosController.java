@@ -36,7 +36,7 @@ public class PhotosController {
 
     // this is the "select 1 from" method
     @GetMapping("/photos/{id}")
-    public Photo get(@PathVariable String id) {
+    public Photo get(@PathVariable int id) {
         Photo photo = photosService.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return photo;
@@ -46,7 +46,7 @@ public class PhotosController {
     //test it with
     // await fetch("http://localhost:8080/photoz/1", { method: "DELETE" });
     @DeleteMapping("/photos/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable int id) {
         Photo photo = photosService.remove(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }

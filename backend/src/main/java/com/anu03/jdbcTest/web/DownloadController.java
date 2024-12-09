@@ -14,7 +14,6 @@ public class DownloadController {
     //this part will lead to errors because it creates a circular dependency
     //the DownloadController is instancing itself, this is not allowed for a bean
     private final PhotosService photosService;
-    ;
 
     public DownloadController(PhotosService photosService) {
         this.photosService = photosService;
@@ -22,7 +21,7 @@ public class DownloadController {
 
 
     @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> download(@PathVariable String id) {
+    public ResponseEntity<byte[]> download(@PathVariable int id) {
         Photo photo = photosService.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
