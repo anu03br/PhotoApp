@@ -2,12 +2,13 @@ package com.anu03.jdbcTest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("PHOTOS")
 public class Photo {
-    @id
-    private int id;
+    @Id
+    private Integer id;
 
     @NotEmpty
     private String fileName;
