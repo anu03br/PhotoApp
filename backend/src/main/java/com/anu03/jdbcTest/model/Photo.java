@@ -19,6 +19,7 @@ public class Photo {
     @JsonIgnore
     private byte[] data;
 
+    // we always need an empty constructor
     public Photo() {
     }
 

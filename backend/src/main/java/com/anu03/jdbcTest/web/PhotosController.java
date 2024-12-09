@@ -13,14 +13,12 @@ import java.io.IOException;
 //this annotation will tell spring to automatically create a new instance when running main
 @RestController
 public class PhotosController {
-    //    if we goto 'http://localhost:8080/' this should be run
 
     private PhotosService photosService;
 
     public PhotosController(PhotosService photosService) {
         this.photosService = photosService;
     }
-
 
     @GetMapping("/")
     public String hello() {
@@ -40,6 +38,9 @@ public class PhotosController {
         return photo;
     }
 
+    // this is the "delete from " method
+    //test it with
+    // await fetch("http://localhost:8080/photoz/1", { method: "DELETE" });
     @DeleteMapping("/photos/{id}")
     public void delete(@PathVariable Integer id) {
         photosService.remove(id);
