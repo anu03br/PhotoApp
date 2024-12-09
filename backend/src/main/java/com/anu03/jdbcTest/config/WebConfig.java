@@ -8,14 +8,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig {
 
+//    we need `@bean here or it wont work`
+    @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Alle Endpunkte erlauben
-                        .allowedOrigins("http://localhost:3000") // Spezifizierte Frontend-URL erlauben
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS"); // Erlaubte HTTP-Methoden
-//                .allowedHeaders("*");
+                registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowedHeaders("*");
             }
         };
     }
