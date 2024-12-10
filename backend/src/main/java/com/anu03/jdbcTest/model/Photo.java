@@ -15,7 +15,8 @@ public class Photo {
 
     private String contentType;
 
-    @JsonIgnore
+//    adding this will not put that value into the JSON response
+//    @JsonIgnore
     private byte[] data;
 
     // we always need an empty constructor
