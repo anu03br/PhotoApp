@@ -84,17 +84,11 @@ const TestPage = () => {
 
     //This is 'delete from photos where id = *' function
     const deletePhoto = async (id) => {
-        // if (!photoId) {
-        //     alert("Please enter a valid photo ID!");
-        //     return;
-        // }
+
         try {
             const response = await fetch(`http://localhost:8080/photos/${id}`, {
-                // header: {},
                 method: "DELETE",
             });
-            //for debugging
-            // console.log(response)
             // Parse response as JSON
             const responseBody = await response.json();
 
