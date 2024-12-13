@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const TestPage = () => {
-
 
     //React needs a  useState and eventHandler for the upload input
     const [file, setFile] = useState(0);
@@ -84,13 +83,13 @@ const TestPage = () => {
     };
 
     //This is 'delete from photos where id = *' function
-    const deletePhoto = async () => {
-        if (!photoId) {
-            alert("Please enter a valid photo ID!");
-            return;
-        }
+    const deletePhoto = async (id) => {
+        // if (!photoId) {
+        //     alert("Please enter a valid photo ID!");
+        //     return;
+        // }
         try {
-            const response = await fetch(`http://localhost:8080/photos/${photoId}`, {
+            const response = await fetch(`http://localhost:8080/photos/${id}`, {
                 // header: {},
                 method: "DELETE",
             });
@@ -117,6 +116,17 @@ const TestPage = () => {
     };
 
 
+    const downloadPhoto= async (id) => {
+
+        window.open(`http://localhost:8080/download/${id}`,'_blank').focus()
+    }
+
+    //load all photos when loading the page
+    //useEffect because just calling the function will cause a loop
+    useEffect(() => {
+        getAllPhotos();
+    }, []);
+
     return (
         <div className="testPage">
             <h2>This Page is for testing the API calls</h2>
@@ -141,8 +151,10 @@ const TestPage = () => {
                         <h2>{photo.id}</h2>
                         <img src={"data:img/png;base64," + photo.data} alt=""/>
                         <h5>{photo.fileName}</h5>
+                        <button onClick={() => downloadPhoto(photo.id)}>Download</button>
+                        <button onClick={() => deletePhoto(photo.id)}>Delete</button>
                     </div>
-                )};
+                )}
             </div>
         </div>
     );
