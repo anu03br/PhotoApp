@@ -2,91 +2,15 @@ import React, {useState} from "react";
 
 const TestPage = () => {
 
-    //we need this React hook to check if there are photos to be displayed
-    const [photos, setPhotos] = useState([])
 
-// todo this works (linked to getPhotos input)
-//make a get call and render the returned data in 'allphotos'
-    const getAllPhotos = async () => {
-        const response = await fetch("http://localhost:8080/photos", {method: 'GET'})
-        const data = await response.json()
-        // this is just for debugging
-        console.log(data);
-        // puts the data into the photos state
-        setPhotos(data);
-    };
-
-    // todo change this to accept parameters
-    //for now this gets photo 1
-    const getPhotos = async () => {
-
-        const response = await fetch("http://localhost:8080/photos/1")
-        const responseBody = await response.json()
-
-
-        // this is just for debugging
-        console.log(responseBody);
-        // puts the data into the photos state
-        setPhotos(responseBody);
-    };
-// -------------------------------------------------------------
-    //todo fix this function
-    // maybe make a try catch so we can show an error message if we don't find the photo object
-    //useState for the id input
-    const [photoId, setPhotoId] = useState(0);
-
-    const handleInputChange = (event) => {
-        setPhotoId(event.target.value); // Update state on input change
-    };
-
-    const deletePhoto = async () => {
-        if (!photoId) {
-            alert("Please enter a valid photo ID!");
-            return;
-        }
-        console.log(photoId)
-        try {
-            const response = await fetch(`http://localhost:8080/photos/${photoId}`, {
-                // header: {},
-                method: "DELETE",
-            });
-            console.log(response)
-            const responseBody = await response.json(); // Parse response as JSON
-
-            if (!response.ok) {
-                // Use the error message from the backend
-                throw new Error(`HTTP error! status: ${response.status}\n${responseBody.message || "Unknown error"}`);
-            }
-
-            alert(`${responseBody.fileName} was deleted successfully.`);
-            console.log(responseBody); // Debugging
-        } catch (error) {
-            console.error("Error deleting photo:", error);
-            alert(`Error deleting photo: ${error.message}`);
-        }
-        await getAllPhotos();
-    };
-// ---------------------------------------------------------------------
-    // todo check this function
-    // const uploadPhoto = async () => {
-    //     const response = await fetch("http://localhost:8080/photos")
-    //     const data = await response.json()
-    //     // this is just for debugging
-    //     console.log(data);
-    //     // puts the data into the photos state
-    //     setPhotos(data);
-    // }
-    //todo ths works, filename is displayed in popup
-
-    // ----------------------------------------------------------------------
-    // GPT upload function
-    // -----------------------------------------------------------------------
+    //React needs a  useState and eventHandler for the upload input
     const [file, setFile] = useState(0);
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]); // Capture the selected file
     };
 
+    //Make a POST call with attached file from 'file' input
     const uploadPhoto = async () => {
         if (!file) {
             alert("Please select a file first!");
@@ -94,7 +18,8 @@ const TestPage = () => {
         }
 
         const formData = new FormData();
-        formData.append("data", file); // Use "data" as the field name to match the backend
+        // Use "data" as the field name to match the backend
+        formData.append("data", file);
 
         try {
             const response = await fetch("http://localhost:8080/photos", {
@@ -109,7 +34,7 @@ const TestPage = () => {
                 throw new Error(`HTTP error! status: ${response.status}\n${responseBody.message || "Unknown error"}`);
             }
 
-            // Use the returned fileName or appropriate key from the response
+            // Use the returned fileName for the alert
             alert(`${responseBody.fileName} was uploaded successfully.`);
         } catch (error) {
             console.error("Error uploading photo:", error);
@@ -117,11 +42,78 @@ const TestPage = () => {
         }
     };
 
-    // ----------------------------------------------------------------------
 
-    function inputChange() {
+    //we need this React hook to check if there are photos to be displayed
+    const [photos, setPhotos] = useState([])
 
-    }
+
+    //make a get call and render the returned data in 'allphotos'
+    const getAllPhotos = async () => {
+        const response = await fetch("http://localhost:8080/photos", {method: 'GET'})
+        const data = await response.json()
+        // this is just for debugging
+        console.log(data);
+        // puts the data into the photos state
+        setPhotos(data);
+    };
+    //I don't think we are currently using this one
+    // if we use is see delete function for parameter use
+    // todo change this to accept parameters
+    //for now this gets photo 1
+    const getPhotos = async () => {
+
+        const response = await fetch("http://localhost:8080/photos/1")
+        const responseBody = await response.json()
+
+
+        // this is just for debugging
+        console.log(responseBody);
+        // puts the data into the photos state
+        setPhotos(responseBody);
+    };
+
+
+    //This is 'delete from photos where id = *' function
+
+    //useState for the 'Id' number input
+    const [photoId, setPhotoId] = useState(0);
+
+    //clickEventHandler for the delete button (read Id value)
+    const handleInputChange = (event) => {
+        setPhotoId(event.target.value); // Update state on input change
+    };
+
+    const deletePhoto = async () => {
+        if (!photoId) {
+            alert("Please enter a valid photo ID!");
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:8080/photos/${photoId}`, {
+                // header: {},
+                method: "DELETE",
+            });
+            //for debugging
+            // console.log(response)
+            const responseBody = await response.json(); // Parse response as JSON
+
+            //if something goes wrong
+            if (!response.ok) {
+                // Use the error message from the backend
+                throw new Error(`HTTP error! status: ${response.status}\n${responseBody.message || "Unknown error"}`);
+            }
+            //if delete is sucessfull
+            alert(`${responseBody.fileName} was deleted successfully.`);
+            console.log(responseBody); // Debugging
+        } catch (error) {
+            //if photo is not found this will fire
+            console.error("Error deleting photo:", error);
+            alert(`Error deleting photo: ${error.message}`);
+        }
+        //refresh Photo display after delete
+        await getAllPhotos();
+    };
+
 
     return (
         <div className="testPage">
