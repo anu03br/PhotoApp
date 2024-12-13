@@ -13,6 +13,15 @@ public class PhotosService {
         this.photosRepository = photosRepository;
     }
 
+    public Photo create(String fileName, String contentType, byte[] data) {
+        Photo photo = new Photo();
+        photo.setContentType(contentType);
+        photo.setFileName(fileName);
+        photo.setData(data);
+        photosRepository.save(photo);
+        return photo;
+    }
+
     public Iterable<Photo> get() {
 
         return photosRepository.findAll();
@@ -23,16 +32,8 @@ public class PhotosService {
         return photosRepository.findById(id).orElse(null);
     }
 
-    public void remove(Integer id) {
+    public void delete(Integer id) {
         photosRepository.deleteById(id);
     }
 
-    public Photo save(String fileName, String contentType, byte[] data) {
-        Photo photo = new Photo();
-        photo.setContentType(contentType);
-        photo.setFileName(fileName);
-        photo.setData(data);
-       photosRepository.save(photo);
-        return photo;
-    }
 }
