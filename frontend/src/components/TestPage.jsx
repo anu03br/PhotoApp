@@ -18,7 +18,7 @@ const TestPage = () => {
         }
 
         const formData = new FormData();
-        // Use "data" as the field name to match the backend
+        // Use "data" as the field name to match the backend, append 'file' from input
         formData.append("data", file);
 
         try {
@@ -56,6 +56,8 @@ const TestPage = () => {
         // puts the data into the photos state
         setPhotos(data);
     };
+
+
     //I don't think we are currently using this one
     // if we use is see delete function for parameter use
     // todo change this to accept parameters
@@ -73,8 +75,6 @@ const TestPage = () => {
     };
 
 
-    //This is 'delete from photos where id = *' function
-
     //useState for the 'Id' number input
     const [photoId, setPhotoId] = useState(0);
 
@@ -83,6 +83,7 @@ const TestPage = () => {
         setPhotoId(event.target.value); // Update state on input change
     };
 
+    //This is 'delete from photos where id = *' function
     const deletePhoto = async () => {
         if (!photoId) {
             alert("Please enter a valid photo ID!");
@@ -95,7 +96,8 @@ const TestPage = () => {
             });
             //for debugging
             // console.log(response)
-            const responseBody = await response.json(); // Parse response as JSON
+            // Parse response as JSON
+            const responseBody = await response.json();
 
             //if something goes wrong
             if (!response.ok) {
@@ -121,7 +123,6 @@ const TestPage = () => {
             <div className={"upload"}>
                 <h4>Uploading</h4>
                 <input type="file" onChange={handleFileChange}/>
-                {/*<input id="fileupload" type="file" name="fileupload"/>*/}
                 <button onClick={uploadPhoto}>upload Photo</button>
             </div>
             <div>
@@ -140,7 +141,6 @@ const TestPage = () => {
                         <h2>{photo.id}</h2>
                         <img src={"data:img/png;base64," + photo.data} alt=""/>
                         <h5>{photo.fileName}</h5>
-
                     </div>
                 )};
             </div>
