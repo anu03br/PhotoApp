@@ -39,6 +39,8 @@ const TestPage = () => {
             console.error("Error uploading photo:", error);
             alert(`Error uploading photo: ${error.message}`);
         }
+        //refresh Photo display after delete
+        await getAllPhotos();
     };
 
 
