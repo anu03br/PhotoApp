@@ -5,8 +5,11 @@ import './HomePage.css';
 const HomePage = () => {
     const navigate = useNavigate();
 
-    const handleNavigation = () => {
-        navigate('/profile-customization');
+    const handleNavigation = async () => {
+        // navigate('/profile-customization');
+        const response = await fetch("http://localhost:8080/photos")
+        const data = await response.json()
+        console.log(data);
     };
 
     return (
@@ -18,7 +21,7 @@ const HomePage = () => {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/profile-customization">Customize</a></li>
-                        <li><a href="#features">Features</a></li>
+                        <li><a href="/testpage">Testpage</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
