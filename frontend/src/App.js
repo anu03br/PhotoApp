@@ -1,10 +1,12 @@
+import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './components/HomePage';
 import TestPage from "./components/TestPage";
-import ProfileCustomization from './components/ProfileCustomization';
 import './App.css';
-import * as domain from "node:domain";
+import About from "./sites/About";
+import Home from "./sites/Home";
+import Navbar from "./components/Navbar";
+import Footerbar from "./components/Footerbar";
 
 function App() {
     return (
@@ -12,9 +14,8 @@ function App() {
             <Navbar/>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/testpage" element={<TestPage />} />
-                    <Route path="/about" element={}></Route>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/about" element={<About/>} />
                 </Routes>
             </Router>
             <Footerbar/>

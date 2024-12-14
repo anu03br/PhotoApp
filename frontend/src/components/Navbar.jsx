@@ -15,14 +15,13 @@ export default function Navbar() {
                     <img className="scale-25 transform" src={hamburgerIcon} alt="hamburger"/>
                 </a>
                 <div className="flex-grow text-center">
-                    <span className="font-funnel text-3xl">TicketMeister</span>
+                    <span className="font-funnel text-3xl">Photo Uploader</span>
                 </div>
                 <div className="flex items-center justify-end">
                     <ul className="hidden lg:flex list-none">
                         <li><a href={"/"} className={"font-funnel hover:bg-neutral rounded-md text-xl p-4"}>Home</a></li>
                         <li><a href={"/about"} className={"font-funnel hover:bg-secondary rounded-md text-xl p-4"}>About</a></li>
-                        <li><a href={"#"} className={"font-funnel hover:bg-secondary rounded-md text-xl p-4"}>Events</a></li>
-                        <li><a href={"#"} className={"font-funnel hover:bg-secondary rounded-md text-xl p-4"}>Contact</a></li>
+
                     </ul>
                 </div>
             </nav>
@@ -30,8 +29,7 @@ export default function Navbar() {
                 <ul>
                     <li className={"p-2"}><a href={"/"} className={"font-funnel hover:bg-gray-200 rounded-md"}>Home</a></li>
                     <li className={"p-2"}><a href={"/about"} className={"font-funnel hover:bg-gray-200 rounded-md"}>About</a></li>
-                    <li className={"p-2"}><a href={"#"} className={"font-funnel hover:bg-gray-200 rounded-md"}>Events</a></li>
-                    <li className={"p-2"}><a href={"#"} className={"font-funnel hover:bg-gray-200 rounded-md"}>Contact</a></li>
+
                 </ul>
             </div>
         </div>

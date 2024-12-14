@@ -112,9 +112,9 @@ const TestPage = () => {
     };
 
 
-    const downloadPhoto= async (id) => {
+    const downloadPhoto = async (id) => {
 
-        window.open(`http://localhost:8080/download/${id}`,'_blank').focus()
+        window.open(`http://localhost:8080/download/${id}`, '_blank').focus()
     }
 
     //load all photos when loading the page
@@ -124,33 +124,56 @@ const TestPage = () => {
     }, []);
 
     return (
-        <div className="testPage">
-            <h2>This Page is for testing the API calls</h2>
-            <div className={"upload"}>
-                <h4>Uploading</h4>
-                <input type="file" onChange={handleFileChange}/>
-                <button onClick={uploadPhoto}>upload Photo</button>
-            </div>
-            <div>
-                <h4>Deleting</h4>
-                <input type="number" placeholder={"Id"} onChange={handleInputChange}/>
-                <button onClick={deletePhoto}>delete photo</button>
-            </div>
-            {/*//here we call the function*/}
-            <button onClick={getAllPhotos}>getPhotos</button>
+        <div className="uploadpage w-full min-h-screen p-4">
+            <h2 className="text-2xl font-bold mb-4 text-center">This Page is for testing the API calls</h2>
 
-            {/*//here we render the photos*/}
-            <div className="photocontent">
-                {/*//here we map the photos [] to display div with every photo objects name and img*/}
-                {photos.map(photo =>
-                    <div key={photo.id}>
-                        <h2>{photo.id}</h2>
-                        <img src={"data:img/png;base64," + photo.data} alt=""/>
-                        <h5>{photo.fileName}</h5>
-                        <button onClick={() => downloadPhoto(photo.id)}>Download</button>
-                        <button onClick={() => deletePhoto(photo.id)}>Delete</button>
+            <div className="upload bg-gray-100 p-4 rounded shadow-md w-1/2 mx-auto min-w-[500px]">
+                <h4 className="text-lg font-semibold mb-2">Upload a new Photo</h4>
+                <div className="uploadbuttons flex items-center justify-between gap-4">
+                    <input
+                        type="file"
+                        onChange={handleFileChange}
+                        className="flex-grow file:bg-secondary file:text-white file:px-4 file:py-2 file:rounded file:hover:bg-secondary-600 file:transition file:border-0"
+                    />
+                    <button
+                        onClick={uploadPhoto}
+                        className="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary-600 transition  min-w-[140px]"
+                    >
+                        Upload Photo
+                    </button>
+                </div>
+            </div>
+
+            {/* Rendering the photos */}
+            <div className="photocontent mt-8 grid gap-4 grid-cols-1 md:grid-cols-2">
+                {photos.map(photo => (
+                    <div
+                        key={photo.id}
+                        className="photocontainer p-4 border border-gray-500 rounded shadow-md bg-white"
+                    >
+                        <h2 className="text-lg font-semibold">{photo.id}</h2>
+                        <img
+                            src={`data:img/png;base64,${photo.data}`}
+                            alt=""
+                            className="w-full h-auto mt-2 rounded"
+                        />
+                        <h5 className="mt-2 text-gray-700 truncate overflow-hidden text-ellipsis w-full">{photo.fileName}</h5>
+                        <div className="photobuttons mt-4 flex justify-between items-center">
+                            <button
+                                onClick={() => downloadPhoto(photo.id)}
+                                className="bg-secondary text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+                            >
+                                Download
+                            </button>
+                            <button
+                                onClick={() => deletePhoto(photo.id)}
+                                className="bg-red-400 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
-                )}
+                ))}
             </div>
         </div>
     );
