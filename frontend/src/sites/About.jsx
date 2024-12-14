@@ -48,6 +48,8 @@ export default function About() {
             <p className="max-w-3xl">
                 I could not have done it without you!
             </p>
+            <h3 className="text-2xl font-semibold mb-4">Github Project Site</h3>
+            <p className={"text-blue-500 hover:underline"}><a href="https://github.com/anu03br/PhotoApp"target="_blank">https://github.com/anu03br/PhotoApp</a></p>
         </div>
 
 

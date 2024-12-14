@@ -58,24 +58,6 @@ const TestPage = () => {
         setPhotos(data);
     };
 
-
-    //I don't think we are currently using this one
-    // if we use is see delete function for parameter use
-    // todo change this to accept parameters
-    //for now this gets photo 1
-    const getPhotos = async () => {
-
-        const response = await fetch("http://localhost:8080/photos/1")
-        const responseBody = await response.json()
-
-
-        // this is just for debugging
-        console.log(responseBody);
-        // puts the data into the photos state
-        setPhotos(responseBody);
-    };
-
-
     //useState for the 'Id' number input
     const [photoId, setPhotoId] = useState(0);
 
@@ -125,10 +107,9 @@ const TestPage = () => {
 
     return (
         <div className="uploadpage w-full min-h-screen p-4">
-            <h2 className="text-2xl font-bold mb-4 text-center">This Page is for testing the API calls</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">Upload a new Photo</h2>
 
             <div className="upload bg-gray-100 p-4 rounded shadow-md w-1/2 mx-auto min-w-[500px]">
-                <h4 className="text-lg font-semibold mb-2">Upload a new Photo</h4>
                 <div className="uploadbuttons flex items-center justify-between gap-4">
                     <input
                         type="file"

@@ -8,7 +8,7 @@ module.exports = {
         // Define custom color names
         primary: colors.gray['100'], // Map primary to blue-500
         secondary: colors.blue['400'], // Map secondary to yellow-500
-        neutral: colors.gray['500'], // Map neutral to all gray shades
+        neutral: colors.gray['300'], // Map neutral to all gray shades
       },
     },
   },

@@ -20,15 +20,15 @@ export default function Navbar() {
                 <div className="flex items-center justify-end">
                     <ul className="hidden lg:flex list-none">
                         <li><a href={"/"} className={"font-funnel hover:bg-neutral rounded-md text-xl p-4"}>Home</a></li>
-                        <li><a href={"/about"} className={"font-funnel hover:bg-secondary rounded-md text-xl p-4"}>About</a></li>
+                        <li><a href={"/about"} className={"font-funnel hover:bg-neutral rounded-md text-xl p-4"}>About</a></li>
 
                     </ul>
                 </div>
             </nav>
             <div className={isVisible ? "block" : "hidden"}>
                 <ul>
-                    <li className={"p-2"}><a href={"/"} className={"font-funnel hover:bg-gray-200 rounded-md"}>Home</a></li>
-                    <li className={"p-2"}><a href={"/about"} className={"font-funnel hover:bg-gray-200 rounded-md"}>About</a></li>
+                    <li className={"p-2"}><a href={"/"} className={"font-funnel hover:bg-neutral rounded-md"}>Home</a></li>
+                    <li className={"p-2"}><a href={"/about"} className={"font-funnel hover:bg-neutral rounded-md"}>About</a></li>
 
                 </ul>
             </div>
